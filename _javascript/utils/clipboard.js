@@ -41,7 +41,7 @@ $(function() {
   });
 
   $(btnSelector).tooltip({
-    trigger: 'hover',
+    trigger: 'click',
     placement: 'left'
   });
 
@@ -53,24 +53,26 @@ $(function() {
   const ICON_DEFAULT = getIcon(btnSelector);
 
   function showTooltip(btn) {
-    const succeedTitle = $(btn).attr('title-succeed');
-    $(btn).attr('data-original-title', succeedTitle).tooltip('show');
+    $(btn).tooltip('show');
   }
 
   function hideTooltip(btn) {
-    $(btn).tooltip('hide').removeAttr('data-original-title');
+    $(btn).tooltip('hide');
+    unlock(btn);
   }
 
   function setSuccessIcon(btn) {
     let btnNode = $(btn);
     let iconNode = btnNode.children();
     iconNode.attr('class', ICON_SUCCESS);
+    lock(btn);
   }
 
   function resumeIcon(btn) {
     let btnNode = $(btn);
     let iconNode = btnNode.children();
     iconNode.attr('class', ICON_DEFAULT);
+    unlock(btn);
   }
 
   clipboard.on('success', (e) => {
@@ -83,12 +85,10 @@ $(function() {
 
     setSuccessIcon(trigger);
     showTooltip(trigger);
-    lock(trigger);
 
     setTimeout(() => {
       hideTooltip(trigger);
       resumeIcon(trigger);
-      unlock(trigger);
     }, TIMEOUT);
 
   });

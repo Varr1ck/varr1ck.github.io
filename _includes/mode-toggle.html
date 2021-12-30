@@ -1,13 +1,19 @@
 <!--
   Switch the mode between dark and light.
+  v2.1
+  https://github.com/cotes2020/jekyll-theme-chirpy
+  © 2020 Cotes Chung
+  MIT License
 -->
 
+<i id="toggleIco" class="mode-toggle fas fa-moon" ></i>
+
 <script type="text/javascript">
+
   class ModeToggle {
     static get MODE_KEY() { return "mode"; }
     static get DARK_MODE() { return "dark"; }
     static get LIGHT_MODE() { return "light"; }
-    static get ID() { return "mode-toggle"; }
 
     constructor() {
       if (this.hasMode) {
@@ -40,64 +46,62 @@
 
           self.clearMode();
         }
-
-        self.notify();
-
       });
+
+
+      /*if (this.hasMode) {
+        if(this.isDarkMode) {
+          this.setDark();
+        }
+        else { 
+          this.setLight();
+        }
+      }
+      else {
+        this.setDark();
+      }*/
 
     } /* constructor() */
 
-    get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
-
-    get isSysDarkPrefer() { return this.sysDarkPrefers.matches; }
-
-    get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; }
-
-    get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; }
-
-    get hasMode() { return this.mode != null; }
-
-    get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
 
     setDark() {
       $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
       sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
+      if($("#toggleIco").hasClass("fa-sun")) {
+        $("#toggleIco").removeClass("fa-sun");
+      }
+      $("#toggleIco").addClass("fa-moon");
     }
 
     setLight() {
       $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
       sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
+      if($("#toggleIco").hasClass("fa-moon")) {
+        $("#toggleIco").removeClass("fa-moon");
+      }
+      $("#toggleIco").addClass("fa-sun");
     }
 
     clearMode() {
       $('html').removeAttr(ModeToggle.MODE_KEY);
       sessionStorage.removeItem(ModeToggle.MODE_KEY);
+      $("#toggleIco").toggleClass("fa-moon fa-sun");
     }
 
-    /* Notify another plugins that the theme mode has changed */
-    notify() {
-      window.postMessage({
-        direction: ModeToggle.ID,
-        message: this.modeStatus
-      }, "*");
-    }
+    get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
 
-  } /* ModeToggle */
+    get isSysDarkPrefer() { return this.sysDarkPrefers.matches; }
 
-  const toggle = new ModeToggle();
+    get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; }
 
-  function flipMode() {
-    if (toggle.hasMode) {
+    get isLightkMode() { return this.mode == ModeToggle.LIGHT_MODE; }
+
+    get hasMode() { return this.mode != null; }
+
+    get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); }
+
+    flipMode() {
+      if (toggle.hasMode) {
       if (toggle.isSysDarkPrefer) {
         if (toggle.isLightMode) {
           toggle.clearMode();
@@ -121,8 +125,14 @@
       }
     }
 
-    toggle.notify();
+    } /* flipMode() */
 
-  } /* flipMode() */
+  } /* ModeToggle */
+
+  let toggle = new ModeToggle();
+
+  $(".mode-toggle").click(function() {
+    toggle.flipMode();
+  });
 
 </script>

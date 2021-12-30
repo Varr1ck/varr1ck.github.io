@@ -11,10 +11,10 @@ $sidebar-width-large: 350px !default;  // screen width: >= 1650px
 /* tabs of sidebar */
 
 $tab-count: 5 !default;   // backward compatible (version <= 4.0.2)
-$tab-height: 3rem !default;
+$tab-height: 3.2rem !default;
 $tab-cursor-height: 1.6rem !default;
 
-$cursor-width: 2px !default;    // the cursor width of the selected tab
+$cursor-width: 3px !default;    // the cursor width of the selected tab
 
 /* other framework sizes */
 
@@ -27,7 +27,7 @@ $main-content-max-width: 1150px !default;
 
 $panel-max-width: 300px !default;
 
-$bottom-min-height: 35rem !default;
+$post-extend-min-height: 35rem !default;
 
 /* syntax highlight */
 

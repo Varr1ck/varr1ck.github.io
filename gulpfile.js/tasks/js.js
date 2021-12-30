@@ -89,5 +89,6 @@ exports.liveRebuild = () => {
       `${ JS_SRC }/lib/*.js`
     ],
     buildJs
-  );
-};
+  )
+}
+

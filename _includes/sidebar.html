@@ -6,18 +6,16 @@
   <div class="profile-wrapper text-center">
     <div id="avatar">
       <a href="{{ '/' | relative_url }}" alt="avatar" class="mx-auto">
-        {% if site.avatar != '' and site.avatar %}
-          {% capture avatar_url %}
-            {%- if site.avatar contains '://' -%}
-              {{ site.avatar }}
-            {%- elsif site.img_cdn != '' and site.img_cdn -%}
-              {{ site.avatar | prepend: site.img_cdn }}
-            {%- else -%}
-              {{ site.avatar | relative_url }}
-            {%- endif -%}
-          {% endcapture %}
-          <img src="{{ avatar_url }}" alt="avatar" onerror="this.style.display='none'">
-        {% endif %}
+        {% capture avatar_url %}
+          {%- if site.avatar contains '://' -%}
+            {{ site.avatar }}
+          {%- elsif site.img_cdn != '' and site.img_cdn -%}
+            {{ site.avatar | prepend: site.img_cdn }}
+          {%- else -%}
+            {{ site.avatar | relative_url }}
+          {%- endif -%}
+        {% endcapture %}
+        <img src="{{ avatar_url }}" alt="avatar" onerror="this.style.display='none'">
       </a>
     </div>
 
@@ -51,17 +49,7 @@
 
   </ul> <!-- ul.nav.flex-column -->
 
-  <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center">
-
-    {% unless site.theme_mode %}
-      <button class="mode-toggle btn" aria-label="Switch Mode">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      {% if site.data.contact.size > 0 %}
-        <span class="icon-border"></span>
-      {% endif %}
-    {% endunless %}
+  <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center">
 
     {% for entry in site.data.contact %}
       {% capture url %}
@@ -81,12 +69,23 @@
 
       {% if url %}
       <a href="{{ url }}" aria-label="{{ entry.type }}"
+        {% if site.show_theme_toggle %}class="order-{{ forloop.index | plus: 2 }}"{% endif %}
         {% unless entry.noblank %}target="_blank" rel="noopener"{% endunless %}>
         <i class="{{ entry.icon }}"></i>
       </a>
       {% endif %}
 
     {% endfor %}
+
+    {% if site.show_theme_toggle %}
+      {% if site.data.contact.size > 0 %}
+        <span class="icon-border order-2"></span>
+      {% endif %}
+
+      <span id="mode-toggle-wrapper" class="order-1">
+        {% include mode-toggle.html %}
+      </span>
+     {% endif %}
 
   </div> <!-- .sidebar-bottom -->
 

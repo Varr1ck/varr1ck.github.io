@@ -8,6 +8,8 @@
   --mask-bg: rgb(68, 69, 70);
   --main-wrapper-bg: rgb(27, 27, 30);
   --main-border-color: rgb(44, 45, 45);
+  --scrollbar-track-bg: rgba(0, 0, 0, 0.3);
+  --scrollbar-thumb-bg: rgb(173 171 171 / 50%);
 
   /* Common color */
   --text-color: rgb(175, 176, 177);
@@ -28,17 +30,13 @@
   --checkbox-checked-color: var(--link-color);
 
   /* Sidebar */
-  --sidebar-bg: radial-gradient(circle, #242424 0%, #1d1f27 100%);
-  --sidebar-muted-color: #6d6c6b;
-  --sidebar-active-color: rgb(255 255 255 / 80%);
   --nav-cursor-color: rgb(183, 182, 182);
-  --sidebar-btn-bg: rgb(117 116 116 / 20%);
+  --sidebar-bg: radial-gradient(circle, #242424 0%, #1d1f27 100%);
 
   /* Topbar */
   --topbar-text-color: var(--text-color);
   --topbar-wrapper-bg: rgb(39, 40, 43);
   --search-wrapper-bg: rgb(34, 34, 39);
-  --search-wrapper-border-color: rgb(34, 34, 39);
   --search-icon-color: rgb(100, 102, 105);
   --input-focus-border-color: rgb(112, 114, 115);
 
@@ -46,8 +44,11 @@
   --post-list-text-color: rgb(175, 176, 177);
   --btn-patinator-text-color: var(--text-color);
   --btn-paginator-hover-color: rgb(64, 65, 66);
-  --btn-paginator-border-color: var(--btn-border-color);
+  --btn-active-bg: rgba(28, 52, 94, 1);
+  --btn-active-border-color: rgb(66, 94, 138);
   --btn-text-color: var(--text-color);
+  --btn-paginator-border-color: var(--btn-border-color);
+  --btn-paginator-shadow: var(--main-wrapper-bg);
   --pin-bg: rgb(34 35 37);
   --pin-color: inherit;
 
@@ -65,7 +66,6 @@
   --card-bg: rgb(39, 40, 43);
   --card-border-color: rgb(53, 53, 60);
   --card-box-shadow: var(--main-wrapper-bg);
-  --preview-img-bg: radial-gradient(circle, rgb(22 22 24) 0%, rgb(32 32 32) 100%);
 
   /* tags */
   --tag-border: rgb(59, 79, 88);
@@ -76,12 +76,15 @@
   /* categories */
   --categories-border: rgb(64, 66, 69);
   --categories-hover-bg: rgb(73, 75, 76);
-  --categories-icon-hover-color: white;
 
   /* archives */
   --timeline-node-bg: rgb(150, 152, 156);
   --timeline-color: rgb(63, 65, 68);
   --timeline-year-dot-color: var(--timeline-color);
+
+  /* Footer */
+  --footer-bg-color: var(--main-wrapper-bg);
+  --footer-link: rgb(171, 171, 171);
 
   .post-content img {
     filter: brightness(90%);
@@ -111,13 +114,11 @@
     .card-header {
       background-color: var(--card-header-bg);
     }
-
     .list-group-item {
       border-left: none;
       border-right: none;
       padding-left: 2rem;
       border-color: var(--categories-border);
-
       &:last-child {
         border-bottom-color: var(--card-bg);
       }
@@ -125,21 +126,13 @@
   }
 
   #archives li:nth-child(odd) {
-    background-image:
-      linear-gradient(
-        to left,
-        rgb(26, 26, 30),
-        rgb(39, 39, 45),
-        rgb(39, 39, 45),
-        rgb(39, 39, 45),
-        rgb(26, 26, 30)
-      );
-  }
-
-  color-scheme: dark;
-
-  #disqus_thread {
-    color-scheme: none;
+    background-image: linear-gradient(
+      to left,
+      rgb(26, 26, 30),
+      rgb(39, 39, 45),
+      rgb(39, 39, 45),
+      rgb(39, 39, 45),
+      rgb(26, 26, 30));
   }
 
 } // dark-scheme

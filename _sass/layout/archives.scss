@@ -41,7 +41,6 @@
     &:not(:first-child) {
       position: relative;
       left: 4px;
-
       &::after {
         left: 67px;
       }
@@ -99,7 +98,6 @@
   .date {
     white-space: nowrap;
     display: inline-block;
-
     &.month {
       width: 1.4rem;
       text-align: center;
@@ -122,7 +120,6 @@
         z-index: 1;
       }
     }
-
     &.day {
       font-size: 85%;
       font-family: 'Lato', sans-serif;
@@ -130,7 +127,7 @@
       margin-right: -2px;
       width: 1.2rem;
       position: relative;
-      left: -0.15rem;
+      left: -.15rem;
     }
   } // #archives .date
 
@@ -139,7 +136,6 @@
 @media all and (max-width: 576px) {
   #archives {
     margin-top: -1rem;
-
     ul {
       letter-spacing: 0;
     }
