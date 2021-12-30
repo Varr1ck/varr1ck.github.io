@@ -69,7 +69,7 @@ show_theme_toggle:  True
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: assets/img/avatar/white.png
 
 # boolean type, the global switch for ToC in posts.
 toc: true
