@@ -18,7 +18,10 @@ timezone: Europe/Berlin
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Room of Requirements                          # the main title
+title: >+					# the main title
+ Room of 
+ <br/>
+ Requirements                          
 
 tagline: >+                                           # subtitle
  Quick. Get in my dear friend.
