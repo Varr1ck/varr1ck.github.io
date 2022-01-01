@@ -15,9 +15,11 @@ layout: default
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
-        <div>
+        <div class="author">
           <span class="semi-bold">
-            {{ page.author | default: site.social.name }}
+            <a href="{{ page.author.link }}">
+              {{ page.author.name }}
+            </a>
           </span>
           {% capture _preposition %}{{ site.data.locales[lang].post.published }}{% endcapture %}
           {% include timeago.html date=page.date tooltip=true preposition=_preposition %}

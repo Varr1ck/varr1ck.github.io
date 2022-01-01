@@ -1,8 +1,8 @@
 ---
 title: Getting Started
 author:
-  name: Cotes Chung
-  link: https://github.com/cotes2020
+  name: Marcel Schwegler
+  link: https://github.com/Varr1ck
 date: 2019-08-09 20:55:00 +0800
 categories: [Blogging, Tutorial]
 tags: [getting started]

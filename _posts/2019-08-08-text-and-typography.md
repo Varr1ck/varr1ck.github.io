@@ -1,18 +1,14 @@
 ---
 title: Text and Typography
 author:
-  name: Cotes Chung
-  link: https://github.com/cotes2020
+  name: Marcel Schwegler
+  link: https://github.com/Varr1ck
 date: 2019-08-08 11:33:00 +0800
 categories: [Blogging, Demo]
 tags: [typography]
 comments: true
 math: true
 mermaid: true
-image:
-  src: /commons/devices-mockup.png
-  width: 800
-  height: 500
 ---
 
 This post is to show Markdown syntax rendering on [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork), you can also use it as an example of writing. Now, let's start looking at text and typography.

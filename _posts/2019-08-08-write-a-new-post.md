@@ -1,8 +1,9 @@
 ---
 title: Writing a New Post
 author:
-  name: Cotes Chung
-  link: https://github.com/cotes2020
+author:
+  name: Marcel Schwegler
+  link: https://github.com/Varr1ck
 date: 2019-08-08 14:10:00 +0800
 categories: [Blogging, Tutorial]
 tags: [writing]
