@@ -49,7 +49,7 @@
 
     <div id="topbar-title">
       {% if page.layout == 'home' %}
-        {{- site.data.locales[lang].title | default: site.title -}}
+        {{- site.data.locales[lang].title | default: site.tabtitle -}}
       {% elsif page.collection == 'tabs' %}
         {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
         {{- site.data.locales[lang].tabs[tab_key] | default: page.title -}}
