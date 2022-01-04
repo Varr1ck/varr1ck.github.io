@@ -34,7 +34,7 @@ description: >-                        # used by seo meta and the atom feed
  Blog about technology, programming, physics, anything of interest
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://reqroom.ml'
+url: 'https://reqroom.dev'
 
 github:
   username: Varr1ck             # change to your github username
